@@ -390,6 +390,10 @@ section {
   flex-direction: column;
 }
 
+.project-card.is-clickable {
+  cursor: pointer;
+}
+
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);

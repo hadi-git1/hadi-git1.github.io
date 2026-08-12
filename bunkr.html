@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BUNKR — Offline Password Manager | Abdelhadi Zaidi</title>
+  <title>BUNKR: Offline Password Manager | Abdelhadi Zaidi</title>
   <meta name="description" content="Case study: BUNKR, a local-first offline password manager built with Python and PySide6, featuring AES-GCM/ChaCha20-Poly1305 encryption and PBKDF2 key derivation.">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
@@ -16,11 +16,11 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abdelhadi Zaidi">
   <!-- <meta property="og:url" content="https://yourdomain.com/bunkr.html"> -->
-  <meta property="og:title" content="BUNKR — Offline Password Manager | Abdelhadi Zaidi">
+  <meta property="og:title" content="BUNKR: Offline Password Manager | Abdelhadi Zaidi">
   <meta property="og:description" content="Case study: BUNKR, a local-first offline password manager built with Python and PySide6, featuring AES-GCM/ChaCha20-Poly1305 encryption and PBKDF2 key derivation.">
   <meta property="og:image" content="images/bunkr/logo.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BUNKR — Offline Password Manager | Abdelhadi Zaidi">
+  <meta name="twitter:title" content="BUNKR: Offline Password Manager | Abdelhadi Zaidi">
   <meta name="twitter:description" content="Case study: BUNKR, a local-first offline password manager built with Python and PySide6, featuring AES-GCM/ChaCha20-Poly1305 encryption and PBKDF2 key derivation.">
   <meta name="twitter:image" content="images/bunkr/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,15 +49,15 @@
     <!-- ===== Case Hero ===== -->
     <section class="case-hero">
       <div class="container">
-        <p class="eyebrow">Case Study — MSc Dissertation</p>
+        <p class="eyebrow">Case Study: MSc Dissertation</p>
         <div class="case-title-row">
-          <h1>BUNKR — Offline Password Manager</h1>
+          <h1>BUNKR: Offline Password Manager</h1>
           <div class="case-actions">
             <a href="https://github.com/hadi-git1/BUNKR-Password-Manager" class="btn btn-primary" target="_blank" rel="noopener">Source Code on GitHub →</a>
             <a href="assets/bunkr-dissertation.pdf" class="btn btn-outline" target="_blank" rel="noopener">Read Full Dissertation (PDF) →</a>
           </div>
         </div>
-        <p class="case-tagline">A local-first, privacy-focused desktop password manager built entirely offline — no accounts, no cloud sync, no telemetry — designed and developed as my MSc dissertation project at the University of Liverpool.</p>
+        <p class="case-tagline">A local-first, privacy-focused desktop password manager built entirely offline (no accounts, no cloud sync, no telemetry), designed and developed as my MSc dissertation project at the University of Liverpool.</p>
 
         <ul class="case-meta-list">
           <li class="case-meta-item">
@@ -85,17 +85,17 @@
       <div class="container case-body">
         <h2>Overview</h2>
         <p>
-          Most popular password managers depend on the cloud for convenience — but that convenience comes
+          Most popular password managers depend on the cloud for convenience, but that convenience comes
           at the cost of privacy and trust in a third party's servers. BUNKR was designed as the opposite:
           a password manager that works <strong>entirely offline</strong>, gives the user full ownership of
           their data, and relies on well-understood, industry-standard cryptography rather than a "trust us"
-          model. The guiding design principle throughout the project was simple —
+          model. The guiding design principle throughout the project was simple:
           <em>"Security should rely on design, not on trust."</em>
         </p>
         <p>
           Every vault is protected by a master password (never stored anywhere), with a 6-digit PIN and a
           recovery question providing offline recovery gates that never bypass the master password for
-          decryption. All encryption and decryption happens locally on-device — there is no network
+          decryption. All encryption and decryption happens locally on-device. There is no network
           communication at any point in the application.
         </p>
       </div>
@@ -116,7 +116,7 @@
         <div class="figure-grid single">
           <figure class="figure-card">
             <img src="images/bunkr/ui-mockup.jpg" alt="BUNKR UI mockup showing the vault entry list, search bar, and password detail form" loading="lazy">
-            <figcaption class="figure-caption">Early UI mockup — sketching the main window layout: entry list + search on the left, entry details and password field on the right, with New Entry / Generate Password / Lock Vault actions in the toolbar.</figcaption>
+            <figcaption class="figure-caption">Early UI mockup, sketching the main window layout: entry list + search on the left, entry details and password field on the right, with New Entry / Generate Password / Lock Vault actions in the toolbar.</figcaption>
           </figure>
         </div>
       </div>
@@ -129,8 +129,8 @@
         <p>The core security design revolves around one idea: <strong>the master password is never stored anywhere.</strong> Instead, it's run through a key derivation function every time a vault is unlocked.</p>
         <ul class="case-list">
           <li><strong>Key derivation:</strong> PBKDF2-HMAC-SHA256 with 100,000 iterations and a unique 32-byte salt per vault, producing a 256-bit Data Encryption Key.</li>
-          <li><strong>Encryption:</strong> AES-GCM by default, with ChaCha20-Poly1305 and Fernet available as alternatives — all authenticated ciphers, so tampering is detected instantly. Each vault can migrate between methods on demand.</li>
-          <li><strong>PIN &amp; recovery hashing:</strong> Argon2id (memory-hard, GPU-resistant) — used only for one-way verification, never for decryption.</li>
+          <li><strong>Encryption:</strong> AES-GCM by default, with ChaCha20-Poly1305 and Fernet available as alternatives. All are authenticated ciphers, so tampering is detected instantly. Each vault can migrate between methods on demand.</li>
+          <li><strong>PIN &amp; recovery hashing:</strong> Argon2id (memory-hard, GPU-resistant), used only for one-way verification, never for decryption.</li>
           <li><strong>Hygiene features:</strong> hard-blocking of exact password reuse, near-duplicate detection via Levenshtein distance, clipboard auto-clear after 30 seconds, and idle auto-lock.</li>
         </ul>
 
@@ -141,7 +141,7 @@
           </figure>
           <figure class="figure-card">
             <img src="images/bunkr/argon2-code.png" alt="Code snippet showing Argon2id hashing for PIN and recovery answer" loading="lazy">
-            <figcaption class="figure-caption">Argon2id hashing for the PIN and recovery answer — one-way verification only.</figcaption>
+            <figcaption class="figure-caption">Argon2id hashing for the PIN and recovery answer: one-way verification only.</figcaption>
           </figure>
         </div>
       </div>
@@ -154,13 +154,13 @@
         <p>
           Before any password is encrypted and stored, it passes through a duplicate and similarity check.
           Exact duplicates are hard-blocked outright; near-duplicates (≥80% similarity, via edit-distance)
-          trigger a warning dialog that lets the user decide whether to proceed — balancing security
+          trigger a warning dialog that lets the user decide whether to proceed, balancing security
           guidance with user autonomy rather than forcing a decision on them.
         </p>
         <div class="figure-grid single">
           <figure class="figure-card">
             <img src="images/bunkr/add-password-flow.png" alt="Flowchart of the add-password workflow: duplicate check, similarity check, warning dialog, encryption, and storage" loading="lazy">
-            <figcaption class="figure-caption">The "Add Password" workflow — duplicate/similarity checks happen before encryption and storage.</figcaption>
+            <figcaption class="figure-caption">The "Add Password" workflow: duplicate/similarity checks happen before encryption and storage.</figcaption>
           </figure>
         </div>
       </div>
