@@ -29,15 +29,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Contact Form Handling ----------
-     NOTE: This is a front-end-only stub. To actually receive messages,
-     connect this form to a backend endpoint or a service such as
-     Formspree, Netlify Forms, EmailJS, etc. — replace the
-     handleSubmit logic below with a fetch() call to that service. */
+     Submits to Formspree (https://formspree.io), which forwards the message
+     straight to hadi00x@hotmail.fr — no backend of your own required.
+
+     ONE-TIME SETUP (do this before the form will actually send anything):
+       1. Go to formspree.io and sign up free with hadi00x@hotmail.fr.
+       2. Create a new form — Formspree gives you an endpoint like
+          https://formspree.io/f/abcd1234.
+       3. In index.html, find the <form id="contactForm" ...> tag and replace
+          YOUR_FORM_ID in its action="" attribute with your real form ID.
+       4. Formspree emails you a confirmation link the first time — click it
+          to activate the form. After that, every submission lands in your
+          inbox automatically. */
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = form.name.value.trim();
@@ -57,10 +65,32 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Placeholder success state — swap in a real API/service call here.
-      status.textContent = `Thanks, ${name}! Your message has been received.`;
-      status.style.color = '#10b981';
-      form.reset();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      status.textContent = 'Sending...';
+      status.style.color = '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          status.textContent = `Thanks, ${name}! Your message has been sent.`;
+          status.style.color = '#10b981';
+          form.reset();
+        } else {
+          status.textContent = "Something went wrong — please email me directly at hadi00x@hotmail.fr.";
+          status.style.color = '#f87171';
+        }
+      } catch (err) {
+        status.textContent = "Couldn't reach the server — please email me directly at hadi00x@hotmail.fr.";
+        status.style.color = '#f87171';
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   }
 });

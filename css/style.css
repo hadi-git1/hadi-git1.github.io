@@ -160,6 +160,12 @@ section {
   white-space: nowrap;
 }
 
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .btn-primary {
   background: var(--color-accent);
   color: #ffffff;

@@ -363,7 +363,11 @@
           <li><a href="https://www.linkedin.com/in/hadi-z-843a4a360/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
         </ul>
 
-        <form class="contact-form" id="contactForm" novalidate>
+        <!-- Submissions are delivered by Formspree to hadi00x@hotmail.fr — see
+             images/README.txt / the note at the end of js/script.js for the
+             one-line setup step (replace YOUR_FORM_ID below with your real
+             Formspree endpoint). Until that's done, submissions will fail. -->
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -378,6 +382,11 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="6" placeholder="Tell me about your project..." required></textarea>
           </div>
+
+          <!-- Sets the email subject line Formspree sends to hadi00x@hotmail.fr -->
+          <input type="hidden" name="_subject" value="New message from your portfolio site">
+          <!-- Spam honeypot — real visitors never fill this in; bots often do -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
           <button type="submit" class="btn btn-primary btn-full">Send Message</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
