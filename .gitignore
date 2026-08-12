@@ -1,0 +1,31 @@
+# ===== Source research materials (not part of the published site) =====
+# These are the original docx/pptx/pdf/video files each case study was built
+# from. They're large, not meant for public distribution, and the site only
+# needs the processed content already copied into html/css/images/assets.
+BMW Company Research/
+BUNKR — Offline Password Manager/
+Hamad Hospital Service Quality Assessment/
+Healthcare Data Cleaning & Visualization/
+Merseyside River Flood Simulation/
+Ooredoo B2B Marketing Research/
+Rayyan Water — Keep It Natural IMC Campaign/
+XSS BeEF Project/
+Vodafone Case Study Competition/
+
+# ===== Raw personal photos =====
+# Processed/cropped versions already live in images/about/, images/hero-flowers.jpg
+IMG.jpg
+IMG2.jpg
+IMG3.jpg
+IMG4.jpg
+
+# ===== Original CV =====
+# Published copy already lives in assets/abdelhadi-zaidi-cv.pdf
+Abdelhadi Zaidi CV.pdf
+
+# ===== Local tooling =====
+.claude/
+
+# ===== OS cruft =====
+.DS_Store
+Thumbs.db

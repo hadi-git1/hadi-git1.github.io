@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XSS &amp; BeEF Browser Exploitation Lab | Abdelhadi Zaidi</title>
+  <meta name="description" content="Case study: an educational web-security lab exploring Cross-Site Scripting (XSS) and the Browser Exploitation Framework (BeEF) in an isolated Kali Linux environment.">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Open Graph / social link previews. og:url and og:image use relative paths for
+       now (fine for local preview) — once deployed, update them to absolute URLs
+       (https://yourdomain.com/...) so LinkedIn/WhatsApp/etc. can fetch the image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Abdelhadi Zaidi">
+  <!-- <meta property="og:url" content="https://yourdomain.com/xss-beef-project.html"> -->
+  <meta property="og:title" content="XSS &amp; BeEF Browser Exploitation Lab | Abdelhadi Zaidi">
+  <meta property="og:description" content="Case study: an educational web-security lab exploring Cross-Site Scripting (XSS) and the Browser Exploitation Framework (BeEF) in an isolated Kali Linux environment.">
+  <meta property="og:image" content="images/xss-beef/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="XSS &amp; BeEF Browser Exploitation Lab | Abdelhadi Zaidi">
+  <meta name="twitter:description" content="Case study: an educational web-security lab exploring Cross-Site Scripting (XSS) and the Browser Exploitation Framework (BeEF) in an isolated Kali Linux environment.">
+  <meta name="twitter:image" content="images/xss-beef/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html#top" class="logo">Abdelhadi<span class="accent">.</span>Zaidi</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact" class="btn btn-small">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <a href="index.html#projects" class="breadcrumb-back">← Back to Projects</a>
+    </div>
+
+    <!-- ===== Case Hero ===== -->
+    <section class="case-hero">
+      <div class="container">
+        <div class="case-hero-media">
+          <img src="images/xss-beef/hero.jpg" alt="Security researcher analyzing code on a laptop" loading="lazy">
+        </div>
+        <p class="eyebrow">Case Study — Web Security Lab</p>
+        <div class="case-title-row">
+          <h1>XSS &amp; BeEF: Browser Exploitation Framework Lab</h1>
+        </div>
+        <p class="case-tagline">An educational, lab-based exploration of Cross-Site Scripting (XSS) vulnerabilities and client-side exploitation using the Browser Exploitation Framework (BeEF), conducted entirely in an isolated Kali Linux virtual environment against an intentionally vulnerable practice target.</p>
+
+        <ul class="case-meta-list">
+          <li class="case-meta-item">
+            <span class="meta-label">Team</span>
+            <span class="meta-value">4-Person Group Project</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Course</span>
+            <span class="meta-value">MIST 450 — Information Security</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">2023</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Environment</span>
+            <span class="meta-value">Kali Linux (VirtualBox, isolated)</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Overview ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Overview</h2>
+        <p>
+          Cross-Site Scripting (XSS) is one of the most common web application vulnerabilities — it lets an
+          attacker inject malicious JavaScript into a page that a victim's browser then trusts and executes.
+          For this course project, our team studied how XSS is actually exploited in practice using the
+          <strong>Browser Exploitation Framework (BeEF)</strong>, an open-source penetration-testing tool
+          purpose-built for demonstrating client-side/browser-focused attack techniques.
+        </p>
+        <p>
+          All testing was performed in a fully isolated lab: a Kali Linux virtual machine (VirtualBox)
+          attacking <strong>Metasploitable</strong>, an intentionally vulnerable practice VM designed
+          specifically for security training — no real websites, third-party systems, or production
+          environments were involved at any point.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Lab Setup ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>Lab Setup</h2>
+        <p>
+          We split the work across the team: two members handled the practical environment setup and
+          testing, while the others focused on documentation and the presentation. Getting the lab running
+          involved installing VirtualBox, provisioning a Kali Linux guest, and building BeEF from source
+          along with its Ruby dependencies — troubleshooting install issues along the way using official
+          docs and video walkthroughs.
+        </p>
+        <div class="figure-grid">
+          <figure class="figure-card">
+            <img src="images/xss-beef/kali-desktop.jpg" alt="Kali Linux desktop environment in VirtualBox" loading="lazy">
+            <figcaption class="figure-caption">The isolated Kali Linux VM used for all testing.</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="images/xss-beef/terminal-launch.jpg" alt="Terminal launching the BeEF framework from the beef-master directory" loading="lazy">
+            <figcaption class="figure-caption">Launching BeEF from the terminal inside the lab VM.</figcaption>
+          </figure>
+        </div>
+        <div class="figure-grid single">
+          <figure class="figure-card">
+            <img src="images/xss-beef/beef-login.jpg" alt="BeEF authentication panel loaded in the browser at a local IP address" loading="lazy">
+            <figcaption class="figure-caption">BeEF's control panel, reachable only on the isolated lab network (10.0.2.x).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Capabilities Explored ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Capabilities Explored</h2>
+        <p>Once a browser is "hooked" via an injected XSS payload, BeEF's control panel exposes a range of client-side capabilities we studied and tested against our lab target:</p>
+        <ul class="case-list">
+          <li><strong>Hooking:</strong> injecting a JavaScript "hook" into a vulnerable page that links the victim's browser to the attacker's control panel.</li>
+          <li><strong>Browser control:</strong> remotely executing JavaScript and manipulating DOM elements on the hooked page.</li>
+          <li><strong>Command execution:</strong> running further commands against the compromised browser session.</li>
+          <li><strong>Browser exploitation:</strong> targeting known browser-specific vulnerabilities for deeper access.</li>
+          <li><strong>Social engineering demos:</strong> showing how a hooked browser could display fake login prompts or redirect users — illustrating the human-factor risk, not just the technical one.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Defensive Takeaways ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>Defensive Takeaways</h2>
+        <p>
+          Understanding how XSS is weaponized is most useful in service of preventing it. The main
+          defensive controls that map directly to what we observed in this lab:
+        </p>
+        <ul class="case-list">
+          <li><strong>Input validation &amp; output encoding:</strong> never trust user input; encode it correctly for the context (HTML, JS, URL) before rendering it back to the page.</li>
+          <li><strong>Content Security Policy (CSP):</strong> restricts which scripts a browser is allowed to execute, blocking most injected/hooking payloads outright.</li>
+          <li><strong>HttpOnly &amp; Secure cookie flags:</strong> prevent injected JavaScript from reading session cookies even if an XSS flaw exists.</li>
+          <li><strong>Framework-level protections:</strong> modern frameworks (React, Angular, etc.) auto-escape output by default, closing off a large share of classic XSS vectors.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Conclusion ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Conclusion</h2>
+        <p>
+          This project gave our team hands-on familiarity with Kali Linux and the BeEF framework, and a
+          much clearer picture of how deceptively powerful a single unsanitized input field can be once
+          combined with browser-side tooling. It reinforced why XSS consistently ranks among the OWASP Top
+          10 web application risks — and why defense-in-depth (validation, CSP, secure cookies) matters far
+          more than any single control.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Bottom CTA ===== -->
+    <section class="case-cta-footer container">
+      <h2>Want to see more?</h2>
+      <p>Head back to see the rest of my project portfolio.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="index.html#projects" class="btn btn-outline">← Back to Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Abdelhadi Zaidi. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hadi-z-843a4a360/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:hadi00x@hotmail.fr" aria-label="Email">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

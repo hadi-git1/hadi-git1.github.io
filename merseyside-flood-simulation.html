@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merseyside River Flood Simulation | Abdelhadi Zaidi</title>
+  <meta name="description" content="Case study: a Cellular Automata flood simulation (CA-ffé) assessing potential flood damage from a proposed tidal barrier on the River Mersey.">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Open Graph / social link previews. og:url and og:image use relative paths for
+       now (fine for local preview) — once deployed, update them to absolute URLs
+       (https://yourdomain.com/...) so LinkedIn/WhatsApp/etc. can fetch the image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Abdelhadi Zaidi">
+  <!-- <meta property="og:url" content="https://yourdomain.com/merseyside-flood-simulation.html"> -->
+  <meta property="og:title" content="Merseyside River Flood Simulation | Abdelhadi Zaidi">
+  <meta property="og:description" content="Case study: a Cellular Automata flood simulation (CA-ffé) assessing potential flood damage from a proposed tidal barrier on the River Mersey.">
+  <meta property="og:image" content="images/merseyside/barrier-concept.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Merseyside River Flood Simulation | Abdelhadi Zaidi">
+  <meta name="twitter:description" content="Case study: a Cellular Automata flood simulation (CA-ffé) assessing potential flood damage from a proposed tidal barrier on the River Mersey.">
+  <meta name="twitter:image" content="images/merseyside/barrier-concept.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html#top" class="logo">Abdelhadi<span class="accent">.</span>Zaidi</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact" class="btn btn-small">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <a href="index.html#projects" class="breadcrumb-back">← Back to Projects</a>
+    </div>
+
+    <!-- ===== Case Hero ===== -->
+    <section class="case-hero">
+      <div class="container">
+        <div class="case-hero-media">
+          <img src="images/merseyside/barrier-concept.jpg" alt="Concept render of a tidal barrier spanning the River Mersey between Liverpool and Wirral" loading="lazy">
+        </div>
+        <p class="eyebrow">Case Study — Group Research Project</p>
+        <div class="case-title-row">
+          <h1>Merseyside River: A CA-ffé Simulation of Potential Flood Damage</h1>
+        </div>
+        <p class="case-tagline">A seven-person MSc research project simulating worst-case flood damage from a proposed tidal barrier on the River Mersey, balancing clean-energy ambitions against flood risk to Liverpool and Wirral.</p>
+
+        <ul class="case-meta-list">
+          <li class="case-meta-item">
+            <span class="meta-label">Team</span>
+            <span class="meta-value">7-Person MSc Group</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">2024</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Tools</span>
+            <span class="meta-value">JavaScript, ArcGIS</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">Cellular Automata Flood Modelling</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Overview ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Overview</h2>
+        <p>
+          Merseyside City Council proposed building a ~2km tidal barrier along the River Mersey, spanning
+          Liverpool and Wirral, to generate clean energy from the ebb and flow of the tide while doubling
+          as a greenway and cycle path connecting the two banks. Our project investigated the worst-case
+          scenario: a once-in-a-century flash flood event, and what damage it could cause given the barrier
+          in place. The objectives were to construct a floodplain map from topographic data, build a
+          simulation model to run flood scenarios on that map, and validate the results against alternative
+          modelling approaches.
+        </p>
+        <div class="team-note">
+          This was a collaborative seven-person MSc research project. Every phase — literature review, data
+          sourcing, model design, implementation, and evaluation — was worked on jointly as a team rather
+          than split into isolated individual tracks, and the summary below reflects the project as a whole.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== The Model ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>The CA-ffé Model</h2>
+        <p>
+          We built on an existing academic approach — the <strong>Cellular Automata Fast Flood Evaluation
+          (CA-ffé)</strong> model (Jamali et al., 2019) — which combines the higher accuracy of cellular
+          automata flood models with the speed of Rapid Flood Spreading models. Instead of coarse "impact
+          zones," CA-ffé uses a standard grid of cells for higher-resolution results, with transition rules
+          based on how water propagates in a Rapid Flood Model.
+        </p>
+        <p>The model takes four grid layers as input, and each cell's next state is decided by comparing its height against its immediate (Von Neumann) neighbours using five transition rules — from "do nothing" when a cell holds no water, up to "partitioning" when water needs to distribute across both higher and lower neighbours.</p>
+        <ul class="case-list">
+          <li><strong>DEM (Digital Elevation Model):</strong> maps topographic elevation to each cell.</li>
+          <li><strong>Excess Water Volume (EV):</strong> flood water added to a cell from rainfall or a breach point.</li>
+          <li><strong>Cell height:</strong> ground elevation + water elevation, updated every simulation step.</li>
+          <li><strong>Boundary type:</strong> marks "closed" cells (water can't pass) vs. "open" outlet cells.</li>
+        </ul>
+        <div class="figure-grid single">
+          <figure class="figure-card">
+            <img src="images/merseyside/ca-ffe-model-grid.png" alt="Diagram of the CA-ffé model's four input grid layers: Excess Water Volume map, Boundary Type map, and Digital Elevation Model" loading="lazy">
+            <figcaption class="figure-caption">The model's layered input grids — Excess Water Volume, Boundary Type, and the Digital Elevation Model — combine to track each cell's water height over time.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Simulation & Results ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Simulation &amp; Results</h2>
+        <p>
+          Elevation data was sourced from ArcGIS, with the simulation run against a century-level flash
+          flood scenario derived from historic rainfall and tidal records. The output classifies affected
+          areas using the UK government's flood risk zones — from Flood Zone 2 (e.g. emergency services)
+          through to Flood Zone 3b (critical infrastructure) — based on flood depth and the type of
+          infrastructure present. Model accuracy was benchmarked against hydrodynamic baseline models such
+          as HEC-RAS using standard metrics (NSE, RMSE, Hit Rate, False Alarm Rate, and Critical Success
+          Index).
+        </p>
+        <div class="figure-grid single">
+          <figure class="figure-card">
+            <img src="images/merseyside/flood-simulation-result.jpg" alt="Elevation map comparing normal river conditions to a simulated flood event, with grey areas showing newly submerged land" loading="lazy">
+            <figcaption class="figure-caption">Simulation output: normal conditions vs. a simulated century flood event — grey areas mark land newly submerged by the flood.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Delivery & Risk Management ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>Project Delivery</h2>
+        <p>
+          The project was structured into three phases — Requirement, Design, and Development — tracked
+          against a shared Gantt chart across a roughly 10-week timeline. We also ran a four-stage risk
+          management process (identification, quantification, alleviation, control) using a Red-Amber-Green
+          rating system, flagging the risk of the council changing the barrier's specification mid-project
+          as our top (Red) risk and designing the model's DEM layers to be adjustable in response.
+        </p>
+        <div class="figure-grid single">
+          <figure class="figure-card">
+            <img src="images/merseyside/gantt-chart.png" alt="Gantt chart showing the project's three phases: Requirement, Design, and Development, from October to December 2024" loading="lazy">
+            <figcaption class="figure-caption">Project Gantt chart — Requirement, Design, and Development phases from October to December 2024.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ethics ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Ethical Considerations</h2>
+        <ul class="case-list">
+          <li><strong>Data privacy:</strong> outputs were anonymised to avoid compromising property-owner privacy, with GDPR-aligned governance in mind for any future commercial reuse.</li>
+          <li><strong>Environmental responsibility:</strong> a ~2km barrier carries long-term ecological implications (altered tidal flow, sediment/erosion changes, habitat disruption) — results were presented with that context so stakeholders could weigh mitigation strategies.</li>
+          <li><strong>Socio-economic impact:</strong> transparent reporting to avoid infrastructure decisions disproportionately affecting local communities, businesses, and industry (e.g. the nearby Stanlow Oil Refinery).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Bottom CTA ===== -->
+    <section class="case-cta-footer container">
+      <h2>Want to see more?</h2>
+      <p>Head back to see the rest of my project portfolio.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="index.html#projects" class="btn btn-outline">← Back to Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Abdelhadi Zaidi. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hadi-z-843a4a360/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:hadi00x@hotmail.fr" aria-label="Email">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUNKR — Offline Password Manager | Abdelhadi Zaidi</title>
+  <meta name="description" content="Case study: BUNKR, a local-first offline password manager built with Python and PySide6, featuring AES-GCM/ChaCha20-Poly1305 encryption and PBKDF2 key derivation.">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Open Graph / social link previews. og:url and og:image use relative paths for
+       now (fine for local preview) — once deployed, update them to absolute URLs
+       (https://yourdomain.com/...) so LinkedIn/WhatsApp/etc. can fetch the image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Abdelhadi Zaidi">
+  <!-- <meta property="og:url" content="https://yourdomain.com/bunkr.html"> -->
+  <meta property="og:title" content="BUNKR — Offline Password Manager | Abdelhadi Zaidi">
+  <meta property="og:description" content="Case study: BUNKR, a local-first offline password manager built with Python and PySide6, featuring AES-GCM/ChaCha20-Poly1305 encryption and PBKDF2 key derivation.">
+  <meta property="og:image" content="images/bunkr/logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BUNKR — Offline Password Manager | Abdelhadi Zaidi">
+  <meta name="twitter:description" content="Case study: BUNKR, a local-first offline password manager built with Python and PySide6, featuring AES-GCM/ChaCha20-Poly1305 encryption and PBKDF2 key derivation.">
+  <meta name="twitter:image" content="images/bunkr/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html#top" class="logo">Abdelhadi<span class="accent">.</span>Zaidi</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact" class="btn btn-small">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <a href="index.html#projects" class="breadcrumb-back">← Back to Projects</a>
+    </div>
+
+    <!-- ===== Case Hero ===== -->
+    <section class="case-hero">
+      <div class="container">
+        <p class="eyebrow">Case Study — MSc Dissertation</p>
+        <div class="case-title-row">
+          <h1>BUNKR — Offline Password Manager</h1>
+          <div class="case-actions">
+            <a href="https://github.com/hadi-git1/BUNKR-Password-Manager" class="btn btn-primary" target="_blank" rel="noopener">Source Code on GitHub →</a>
+            <a href="assets/bunkr-dissertation.pdf" class="btn btn-outline" target="_blank" rel="noopener">Read Full Dissertation (PDF) →</a>
+          </div>
+        </div>
+        <p class="case-tagline">A local-first, privacy-focused desktop password manager built entirely offline — no accounts, no cloud sync, no telemetry — designed and developed as my MSc dissertation project at the University of Liverpool.</p>
+
+        <ul class="case-meta-list">
+          <li class="case-meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Solo Developer &amp; Researcher</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Type</span>
+            <span class="meta-value">MSc Dissertation, 2025</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Stack</span>
+            <span class="meta-value">Python, PySide6, SQLite</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">Applied Cryptography &amp; UX</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Overview ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Overview</h2>
+        <p>
+          Most popular password managers depend on the cloud for convenience — but that convenience comes
+          at the cost of privacy and trust in a third party's servers. BUNKR was designed as the opposite:
+          a password manager that works <strong>entirely offline</strong>, gives the user full ownership of
+          their data, and relies on well-understood, industry-standard cryptography rather than a "trust us"
+          model. The guiding design principle throughout the project was simple —
+          <em>"Security should rely on design, not on trust."</em>
+        </p>
+        <p>
+          Every vault is protected by a master password (never stored anywhere), with a 6-digit PIN and a
+          recovery question providing offline recovery gates that never bypass the master password for
+          decryption. All encryption and decryption happens locally on-device — there is no network
+          communication at any point in the application.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== How It Works ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>How It Works</h2>
+        <p>The app follows a modular, four-layer architecture so each part of the system has a clearly separated responsibility:</p>
+        <ul class="case-list">
+          <li><strong>GUI Layer (PySide6):</strong> the main window, dialogs, dark-mode styling, and status bar.</li>
+          <li><strong>Vault Manager:</strong> encryption/decryption, key derivation, and vault lifecycle handling.</li>
+          <li><strong>Data Layer (SQLite):</strong> stores encrypted password blobs and performs CRUD operations.</li>
+          <li><strong>Utilities:</strong> password generator, clipboard auto-clear, settings manager, search, and duplicate/similarity detection.</li>
+        </ul>
+
+        <div class="figure-grid single">
+          <figure class="figure-card">
+            <img src="images/bunkr/ui-mockup.jpg" alt="BUNKR UI mockup showing the vault entry list, search bar, and password detail form" loading="lazy">
+            <figcaption class="figure-caption">Early UI mockup — sketching the main window layout: entry list + search on the left, entry details and password field on the right, with New Entry / Generate Password / Lock Vault actions in the toolbar.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Security & Cryptography ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Security &amp; Cryptography</h2>
+        <p>The core security design revolves around one idea: <strong>the master password is never stored anywhere.</strong> Instead, it's run through a key derivation function every time a vault is unlocked.</p>
+        <ul class="case-list">
+          <li><strong>Key derivation:</strong> PBKDF2-HMAC-SHA256 with 100,000 iterations and a unique 32-byte salt per vault, producing a 256-bit Data Encryption Key.</li>
+          <li><strong>Encryption:</strong> AES-GCM by default, with ChaCha20-Poly1305 and Fernet available as alternatives — all authenticated ciphers, so tampering is detected instantly. Each vault can migrate between methods on demand.</li>
+          <li><strong>PIN &amp; recovery hashing:</strong> Argon2id (memory-hard, GPU-resistant) — used only for one-way verification, never for decryption.</li>
+          <li><strong>Hygiene features:</strong> hard-blocking of exact password reuse, near-duplicate detection via Levenshtein distance, clipboard auto-clear after 30 seconds, and idle auto-lock.</li>
+        </ul>
+
+        <div class="figure-grid">
+          <figure class="figure-card">
+            <img src="images/bunkr/pbkdf2-code.png" alt="Code snippet showing PBKDF2-HMAC-SHA256 key derivation in Python" loading="lazy">
+            <figcaption class="figure-caption">Master key derivation: PBKDF2-HMAC-SHA256, 100,000 iterations, 32-byte output.</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="images/bunkr/argon2-code.png" alt="Code snippet showing Argon2id hashing for PIN and recovery answer" loading="lazy">
+            <figcaption class="figure-caption">Argon2id hashing for the PIN and recovery answer — one-way verification only.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Password Hygiene Flow ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>Password Hygiene in Action</h2>
+        <p>
+          Before any password is encrypted and stored, it passes through a duplicate and similarity check.
+          Exact duplicates are hard-blocked outright; near-duplicates (≥80% similarity, via edit-distance)
+          trigger a warning dialog that lets the user decide whether to proceed — balancing security
+          guidance with user autonomy rather than forcing a decision on them.
+        </p>
+        <div class="figure-grid single">
+          <figure class="figure-card">
+            <img src="images/bunkr/add-password-flow.png" alt="Flowchart of the add-password workflow: duplicate check, similarity check, warning dialog, encryption, and storage" loading="lazy">
+            <figcaption class="figure-caption">The "Add Password" workflow — duplicate/similarity checks happen before encryption and storage.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Read More Callout ===== -->
+    <section class="case-section">
+      <div class="container">
+        <div class="callout-banner">
+          <p>The full dissertation covers the complete threat model, database schema, testing strategy, and every figure referenced above in detail.</p>
+          <a href="assets/bunkr-dissertation.pdf" class="btn btn-primary" target="_blank" rel="noopener">Download Dissertation (PDF) →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Bottom CTA ===== -->
+    <section class="case-cta-footer container">
+      <h2>Want to see more?</h2>
+      <p>Browse the full source on GitHub, or head back to see the rest of my project portfolio.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="https://github.com/hadi-git1/BUNKR-Password-Manager" class="btn btn-primary" target="_blank" rel="noopener">View Source Code →</a>
+        <a href="index.html#projects" class="btn btn-outline">← Back to Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Abdelhadi Zaidi. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hadi-z-843a4a360/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:hadi00x@hotmail.fr" aria-label="Email">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
