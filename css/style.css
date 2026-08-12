@@ -630,78 +630,63 @@ section {
 }
 
 .contact-inner {
-  max-width: 640px;
+  max-width: 720px;
 }
 
-.contact-details {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px 28px;
-  margin-bottom: 40px;
-}
-
-.contact-details a {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #d8d5cd;
-  transition: color var(--transition);
-}
-
-.contact-details a:hover {
-  color: var(--color-accent);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.form-group {
+.contact-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.form-group label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #d8d5cd;
-}
-
-.form-group input,
-.form-group textarea {
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 32px 20px;
   background: var(--color-dark-alt);
   border: 1.5px solid #46474d;
-  border-radius: var(--radius-sm);
-  padding: 13px 16px;
-  color: #f4f2ee;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(47, 158, 110, 0.12);
+  color: var(--color-accent);
+}
+
+.contact-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-card-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: #8c8a83;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(47, 158, 110, 0.2);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 140px;
-}
-
-.form-status {
-  min-height: 20px;
-  font-size: 0.9rem;
-  color: var(--color-accent);
-  text-align: center;
+.contact-card-value {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #f4f2ee;
+  word-break: break-word;
 }
 
 /* ---------- 10. Footer ---------- */
@@ -1120,6 +1105,10 @@ section {
   .about-photo-card.wide,
   .about-photo-card.narrow {
     aspect-ratio: 4 / 3;
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr;
   }
 
   .footer-inner {
