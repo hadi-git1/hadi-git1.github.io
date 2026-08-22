@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK Data Job Market Analytics | Abdelhadi Zaidi</title>
+  <meta name="description" content="Case study: pulling live UK data-analyst job listings via the Adzuna API, cleaning them with Python, and building a Tableau dashboard covering salary by region, top skills, and skill co-occurrence.">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Open Graph / social link previews. og:url and og:image use relative paths for
+       now (fine for local preview); once deployed, update them to absolute URLs
+       (https://yourdomain.com/...) so LinkedIn/WhatsApp/etc. can fetch the image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Abdelhadi Zaidi">
+  <!-- <meta property="og:url" content="https://yourdomain.com/uk-job-market-analytics.html"> -->
+  <meta property="og:title" content="UK Data Job Market Analytics | Abdelhadi Zaidi">
+  <meta property="og:description" content="Case study: pulling live UK data-analyst job listings via the Adzuna API, cleaning them with Python, and building a Tableau dashboard covering salary by region, top skills, and skill co-occurrence.">
+  <meta property="og:image" content="images/uk-job-market/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UK Data Job Market Analytics | Abdelhadi Zaidi">
+  <meta name="twitter:description" content="Case study: pulling live UK data-analyst job listings via the Adzuna API, cleaning them with Python, and building a Tableau dashboard covering salary by region, top skills, and skill co-occurrence.">
+  <meta name="twitter:image" content="images/uk-job-market/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html#top" class="logo">Abdelhadi<span class="accent">.</span>Zaidi</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact" class="btn btn-small">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <a href="index.html#projects" class="breadcrumb-back">← Back to Projects</a>
+    </div>
+
+    <!-- ===== Case Hero ===== -->
+    <section class="case-hero">
+      <div class="container">
+        <div class="case-hero-media">
+          <img src="images/uk-job-market/hero.jpg" alt="Job seeker holding recruitment materials at a UK careers fair" loading="lazy">
+        </div>
+        <p class="eyebrow">Case Study: Data Analytics</p>
+        <div class="case-title-row">
+          <h1>UK Data Job Market Analytics</h1>
+        </div>
+        <p class="case-tagline">A live-data pipeline pulling UK data-analyst job listings from the Adzuna API, cleaning and analyzing them with Python, and turning the result into a Tableau dashboard covering salary by region, in-demand skills, and which tools employers ask for together.</p>
+
+        <ul class="case-meta-list">
+          <li class="case-meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Data Analyst</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">2026</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Tools</span>
+            <span class="meta-value">Python, Adzuna API, Tableau</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">Data Pipelines &amp; Dashboarding</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Overview ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Overview</h2>
+        <p>
+          Rather than working from a static dataset, this project builds its own: a Python pipeline pulls live
+          job listings from the <a href="https://developer.adzuna.com/" target="_blank" rel="noopener">Adzuna</a>
+          job-search API for five data-related search terms ("data analyst," "business analyst," "data scientist,"
+          "power bi," "sql analyst") across 12 major UK cities. A single run pulled 2,513 raw listings, which were
+          then deduplicated, standardized, and filtered down to 2,115 clean records. From there, the pipeline
+          computes an average salary per listing and scans each job's title and description for 26 tracked
+          skills, producing three analysis-ready CSVs that feed directly into a Tableau dashboard.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Salary by Region ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>Salary by Region</h2>
+        <p>
+          Averaging and finding the median salary for every listing in each city surfaces a clear regional pay
+          gradient. London leads by a wide margin at an average of &pound;67,589 (median &pound;58,966), followed
+          by Edinburgh (&pound;62,714) and Manchester (&pound;62,149). At the other end, Cardiff averages
+          &pound;52,720 &mdash; meaning the average London data role pays roughly 28% more than the average
+          Cardiff one for comparable job titles. Showing median alongside average also matters: in most cities the
+          average sits noticeably above the median, a sign that a smaller number of senior/high-paying roles are
+          pulling the average up above what a "typical" job in that city actually pays.
+        </p>
+        <div class="figure-stack">
+          <figure class="figure-card">
+            <img src="images/uk-job-market/salary-by-region.png" alt="Treemap showing average and median UK data-analyst salary by city, from London at the top down to Cardiff at the bottom" loading="lazy">
+            <figcaption class="figure-caption">Average and median salary across all 12 tracked UK cities, sized by average salary and colored by median.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Top Skills ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Top Skills</h2>
+        <p>
+          Scanning every listing's title and description for 26 common data-analytics tools shows a market
+          led by BI and cloud tooling rather than any single programming language: Power BI (mentioned in 4.9%
+          of listings), Machine Learning (4.6%), and SQL (3.4%) top the list, ahead of Python (2.1%), Azure
+          (1.7%), and AWS (1.7%). Excel, Statistics, and ETL round out the top tier. Because Adzuna's free API
+          only returns a short description snippet rather than the full posting, these percentages understate
+          the true mention rate for every skill &mdash; they're best read as a relative ranking (Power BI is
+          asked for more often than Excel) rather than a literal share of the UK job market.
+        </p>
+        <div class="figure-stack">
+          <figure class="figure-card">
+            <img src="images/uk-job-market/top-skills.png" alt="Horizontal bar chart ranking 24 data skills by percentage of job listings mentioning them, led by Power BI, Machine Learning, and SQL" loading="lazy">
+            <figcaption class="figure-caption">Share of listings mentioning each of the 26 tracked skills, ranked highest to lowest.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skill Co-occurrence ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>Skill Co-occurrence</h2>
+        <p>
+          Counting every skill pair that appears together in the same listing turns the frequency data into
+          something more actionable: which tools are actually bundled together in real job requirements.
+          <strong>Power BI + SQL</strong> is by far the most common pairing (33 co-occurrences), followed by
+          <strong>Machine Learning + Python</strong> (21) and <strong>Python + SQL</strong> (16). The pattern
+          suggests two distinct but overlapping skill clusters in the UK market: a BI/reporting cluster built
+          around Power BI, SQL, Excel, and Azure, and a more technical analytics cluster built around Python,
+          Machine Learning, and Statistics &mdash; with SQL acting as the bridge between both.
+        </p>
+        <div class="figure-stack">
+          <figure class="figure-card">
+            <img src="images/uk-job-market/skill-cooccurrence.png" alt="Heatmap matrix showing how often each pair of data skills appears together in the same job listing, with Power BI and SQL as the darkest, most frequent pairing" loading="lazy">
+            <figcaption class="figure-caption">Skill co-occurrence matrix &mdash; darker cells mean that pair of skills appears together more often across the 2,115 cleaned listings.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Approach & Tools ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Approach &amp; Tools</h2>
+        <ul class="case-list">
+          <li><strong>Data collection:</strong> a Python script (requests) queries the Adzuna API across every search-term &times; city combination, paginating results while staying within Adzuna's free-tier rate limits.</li>
+          <li><strong>Cleaning:</strong> pandas deduplicates listings by Adzuna's own ad ID, drops records with no job title, standardizes company-name formatting, and computes an average salary from each listing's min/max range.</li>
+          <li><strong>Skill detection:</strong> a keyword-matching pass over each listing's title and description flags mentions of 26 tracked skills (SQL, Python, Power BI, AWS, Azure, and more), which also drives the pairwise co-occurrence counts.</li>
+          <li><strong>Dashboarding:</strong> the three resulting CSVs feed a Tableau dashboard combining a regional salary treemap, a ranked skills bar chart, and a skill co-occurrence heatmap into one interactive view.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Interactive Dashboard ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>Interactive Dashboard</h2>
+        <p>
+          The full dashboard is published on Tableau Public and embedded live below &mdash; hover over any
+          region, skill, or skill pair for the exact figures behind the charts above.
+        </p>
+        <div class="figure-stack">
+          <div class='tableauPlaceholder' id='viz1787410277101' style='position: relative'><noscript><a href='#'><img alt='UK Data Job Market — Salary, Skills &amp; Skill Pairings ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;UK&#47;UKDataJobMarketProject&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='UKDataJobMarketProject&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;UK&#47;UKDataJobMarketProject&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /><param name='filter' value='publish=yes' /></object></div>
+          <script type='text/javascript'>
+            var divElement = document.getElementById('viz1787410277101');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1127px';}
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Bottom CTA ===== -->
+    <section class="case-cta-footer container">
+      <h2>Want to see more?</h2>
+      <p>Head back to see the rest of my project portfolio.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="index.html#projects" class="btn btn-outline">← Back to Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Abdelhadi Zaidi. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hadi-z-843a4a360/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:hadi00x@hotmail.fr" aria-label="Email">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
