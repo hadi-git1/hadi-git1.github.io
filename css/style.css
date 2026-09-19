@@ -935,9 +935,9 @@ section {
 
 .callout-figure {
   flex-shrink: 0;
-  width: 220px;
+  width: 340px;
   margin: 0;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
 }
 
 .callout-banner p {
@@ -1164,7 +1164,7 @@ section {
 
   .callout-figure {
     width: 100%;
-    max-width: 280px;
+    max-width: 340px;
   }
 }
 
