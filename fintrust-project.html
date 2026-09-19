@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fintrust: Personal Finance App Proposal | Abdelhadi Zaidi</title>
+  <meta name="description" content="Case study: Fintrust, a personal finance advisory app business case and database design that placed 2nd at the Qatar Development Bank Fintech Competition.">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Open Graph / social link previews. og:url and og:image use relative paths for
+       now (fine for local preview); once deployed, update them to absolute URLs
+       (https://yourdomain.com/...) so LinkedIn/WhatsApp/etc. can fetch the image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Abdelhadi Zaidi">
+  <!-- <meta property="og:url" content="https://yourdomain.com/fintrust-project.html"> -->
+  <meta property="og:title" content="Fintrust: Personal Finance App Proposal | Abdelhadi Zaidi">
+  <meta property="og:description" content="Case study: Fintrust, a personal finance advisory app business case and database design that placed 2nd at the Qatar Development Bank Fintech Competition.">
+  <meta property="og:image" content="images/fintrust/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fintrust: Personal Finance App Proposal | Abdelhadi Zaidi">
+  <meta name="twitter:description" content="Case study: Fintrust, a personal finance advisory app business case and database design that placed 2nd at the Qatar Development Bank Fintech Competition.">
+  <meta name="twitter:image" content="images/fintrust/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html#top" class="logo">Abdelhadi<span class="accent">.</span>Zaidi</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact" class="btn btn-small">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <a href="index.html#projects" class="breadcrumb-back">← Back to Projects</a>
+    </div>
+
+    <!-- ===== Case Hero ===== -->
+    <section class="case-hero">
+      <div class="container">
+        <div class="case-hero-media">
+          <img src="images/fintrust/hero.jpg" alt="Fintech-themed graphic with financial icons: security, growth, budgeting, and analytics" loading="lazy">
+        </div>
+        <p class="eyebrow">Case Study: Fintech Competition · 🥈 2nd Place</p>
+        <div class="case-title-row">
+          <h1>Fintrust: Personal Finance App Proposal</h1>
+        </div>
+        <p class="case-tagline">A fintech business case and database design for a personal finance advisory app, proposing a bank-linked budgeting platform with peer-to-peer financial guidance for the Qatari market.</p>
+
+        <ul class="case-meta-list">
+          <li class="case-meta-item">
+            <span class="meta-label">Team</span>
+            <span class="meta-value">5-Person Group</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Competition</span>
+            <span class="meta-value">Qatar Development Bank Fintech Competition</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">2022</span>
+          </li>
+          <li class="case-meta-item">
+            <span class="meta-label">Result</span>
+            <span class="meta-value">2nd Place, Monetary Prize</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Overview ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Overview</h2>
+        <p>
+          Qatar didn't have its own platform for recording and analyzing personal transactions, and the
+          market lacked a way to connect people who needed financial guidance with those who had it. Our
+          five-person team proposed <strong>Fintrust</strong>: a mobile app that links directly to a
+          user's bank account to unify budgeting, spending analysis, and peer-to-peer financial advice in
+          one place. The proposal placed 2nd at the Qatar Development Bank Fintech Competition and won a
+          monetary prize.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Problem & Strategic Fit ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>The Problem &amp; Strategic Fit</h2>
+        <p>
+          Most people make a mix of major and minor financial decisions that add up over time, but have
+          no easy way to track how those decisions connect to their actual bank balance, or to get advice
+          from someone more financially literate. Qatar National Vision 2030 lists economic
+          diversification as a core pillar, and fintech is one of the concrete ways the country is pursuing
+          it, a point echoed publicly by QDB's Executive Director of Advisory and Incubation. Fintrust was
+          designed to sit squarely in that gap: a platform that helps individuals manage their finances
+          while giving Qatar's fintech sector another building block toward that diversification goal.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== How Fintrust Works ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>How Fintrust Works</h2>
+        <ul class="case-list">
+          <li><strong>Bank-linked budgeting:</strong> users create budgets and log expenditures/revenue, with the app always reflecting the actual bank balance rather than a manually maintained estimate.</li>
+          <li><strong>Purchase-impact calculator:</strong> before a purchase, the app estimates payoff time and overall feasibility against the user's spending history, a personalization layer that improves after an initial 2-week data-gathering period.</li>
+          <li><strong>Spending-category insights:</strong> when users tag what they're buying, the app flags high-expenditure categories and, for things like cigarettes, suggests healthier alternative uses for that money.</li>
+          <li><strong>Peer-to-peer financial Q&amp;A:</strong> users can ask and answer financial questions within the platform, with a points and rating system (built into the data model) to encourage participation from more financially literate users.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Business Case ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container case-body">
+        <h2>Business Case</h2>
+        <p>We benchmarked Fintrust against the two realistic alternatives people already use:</p>
+        <ul class="case-list">
+          <li><strong>Fintrust:</strong> extremely convenient (mobile-first), minimal time required, minimal service charges.</li>
+          <li><strong>Hiring a financial advisor:</strong> less convenient (appointments required), a moderate time investment, and costly (~QAR 5,500 for a financial plan).</li>
+          <li><strong>Taking financial courses:</strong> moderately convenient, a significant time investment (classes, possibly exams), and costly.</li>
+        </ul>
+
+        <div class="stat-grid" style="margin-top: 32px;">
+          <div class="stat-card">
+            <div class="stat-number">~QAR 300K</div>
+            <div class="stat-label">Estimated app development cost (~10 months)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">QR 25 / QR 250</div>
+            <div class="stat-label">Monthly / yearly subscription, after a 2-week free trial</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">~1.2 yrs</div>
+            <div class="stat-label">Projected payback period</div>
+          </div>
+        </div>
+
+        <p style="margin-top: 24px;">
+          Modeling 1,000 paying customers in year one (split evenly between monthly and yearly plans)
+          projected ~QAR 275,000 in revenue; adding another 1,000 in year two would bring cumulative
+          revenue to ~QAR 550,000. The biggest flagged risks were building customer trust as a new
+          entrant and differentiating from existing competitors, alongside the reality that the product
+          only creates value for users who are actually motivated to save.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Data & Database Design ===== -->
+    <section class="case-section">
+      <div class="container case-body">
+        <h2>Data &amp; Database Design</h2>
+        <p>
+          Behind the product pitch was a full relational schema covering both customer-facing data
+          (transactions, budgets, bank accounts, Q&amp;A activity) and internal business data (employees,
+          departments, merchants, customer service requests). Data would be collected two ways: manual
+          entry by the user, and automatic entry pulled from linked bank accounts.
+        </p>
+        <div class="figure-grid single">
+          <figure class="figure-card">
+            <img src="images/fintrust/erd-diagram.png" alt="Entity relationship diagram for Fintrust showing Customer, BankAccount, CashTransaction, CashTransaction_Item, Item, Merchant, Budget, Employee, Department, CustomerService, and CustomerRequest entities and their relationships" loading="lazy">
+            <figcaption class="figure-caption">The Fintrust entity relationship diagram, covering both customer transactions and internal business operations.</figcaption>
+          </figure>
+        </div>
+        <p style="margin-top: 24px;">We also mapped the schema to real queries the app and its managers would actually run:</p>
+        <ul class="case-list">
+          <li><strong>User-facing operations:</strong> signup, adding bank details, recording cash transactions, asking/answering questions (updating a customer's points), creating budgets, and logging customer service requests.</li>
+          <li><strong>Management insight queries:</strong> customer growth over time, points generated per customer, average customer age, budgets created per user, average budget duration, which merchant has the most customers, and the most frequently recorded item category.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Result ===== -->
+    <section class="case-section" style="background: var(--color-bg-alt);">
+      <div class="container">
+        <div class="callout-banner">
+          <p>Fintrust placed 2nd at the Qatar Development Bank Fintech Competition and was awarded a monetary prize, recognized by QDB's Qatar Fintech Hub.</p>
+        </div>
+        <div class="figure-grid single" style="margin-top: 32px; max-width: 420px;">
+          <figure class="figure-card">
+            <img src="images/fintrust/qfth-badge.jpg" alt="Qatar Fintech Hub logo" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Bottom CTA ===== -->
+    <section class="case-cta-footer container">
+      <h2>Want to see more?</h2>
+      <p>Head back to see the rest of my project portfolio.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="index.html#projects" class="btn btn-outline">← Back to Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Abdelhadi Zaidi. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hadi-z-843a4a360/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:hadi00x@hotmail.fr" aria-label="Email">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
